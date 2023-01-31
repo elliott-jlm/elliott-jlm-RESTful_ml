@@ -6,18 +6,18 @@ pipeline {
     }
     
     stages {
-//         stage('Testing app') {
-//             steps {
-//                 bat 'python -m pip install --upgrade pip'
-//                 bat 'python -m pip install -r requirements.txt'
-//                 bat 'python test_main.py'
-//             }
-//         }
+        stage('Testing app') {
+            steps {
+                bat 'python -m pip install --upgrade pip'
+                bat 'python -m pip install -r requirements.txt'
+                bat 'python test_main.py'
+            }
+        }
 
         stage('Docker deploy') {
             steps {
                 bat 'docker build -t my-app .'
-                bat 'docker run my-app'
+                bat 'docker run -d my-app'
             }
         }
     }
