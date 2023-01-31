@@ -3,7 +3,7 @@ from flask import request
 from flask.json import jsonify
 import pickle
 
-model = pickle.load(open("trained_model.pkl", "rb"))
+model = pickle.load(open("model.pkl", "rb"))
 
 classes = ['T-shirt', 'Trouser', 'Pullover', 'Dress','Coat','Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
