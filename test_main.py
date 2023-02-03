@@ -12,7 +12,7 @@ class FlaskTestCase(unittest.TestCase):
         url = "http://localhost:5000/classify"
 
         # Define a sample row of pixels using a list comprehension
-        pixels = [0 if i % 2 == 0 else 255 for i in range(28 * 28)]
+        pixels = [0 for i in range(28 * 28)]
 
         # Make a request to the API endpoint
         response = requests.post(url, json={"pixels": pixels})
