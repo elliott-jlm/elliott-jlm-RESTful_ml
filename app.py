@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 
 # Load the trained model
-model = tf.keras.models.load_model("model.pkl")
+model = tf.keras.models.load_model("model.h5")
 
 classes = ['T-shirt', 'Trouser', 'Pullover', 'Dress','Coat','Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
