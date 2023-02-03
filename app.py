@@ -1,9 +1,9 @@
-from flask import Flask
-from flask import request
-from flask.json import jsonify
-import pickle
+from flask import Flask, request
+import numpy as np
+import tensorflow as tf
 
-model = pickle.load(open("model.pkl", "rb"))
+# Load the trained model
+model = tf.keras.models.load_model("model.pkl")
 
 classes = ['T-shirt', 'Trouser', 'Pullover', 'Dress','Coat','Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
@@ -14,17 +14,13 @@ def classify():
     data = request.get_json()
 
     # Convert the data to a numpy array
-    pixels = np.array(data["pixels"])
-    pixels = pixels.reshape(1, -1)
+    pixels = np.array(data["pixels"]).reshape(1, -1)
 
     # Use the model to make a prediction
-    prediction = model.predict(pixels)[0]
+    prediction = int(np.round(model.predict(pixels)[0][0]))
 
-    # Get the index of the class with the highest prediction
-    class_index = np.argmax(prediction)
-
-    # Return the predicted class as a response
-    return {"class": classes[class_index]}
+    # Return the result as a JSON response
+    return {"class": str(pred)}
 
 if __name__ == "__main__":
     app.run()
