@@ -2,6 +2,8 @@ from flask import Flask, request
 import numpy as np
 import tensorflow as tf
 
+app = Flask(__name__)
+
 # Load the trained model
 model = tf.keras.models.load_model("model.h5")
 
