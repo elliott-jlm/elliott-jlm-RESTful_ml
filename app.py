@@ -22,7 +22,7 @@ def classify():
     prediction = int(np.round(model.predict(pixels)[0][0]))
 
     # Return the result as a JSON response
-    return {"class": str(pred)}
+    return {"class": str(prediction)}
 
 if __name__ == "__main__":
     app.run()
