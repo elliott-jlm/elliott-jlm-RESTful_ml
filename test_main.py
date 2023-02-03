@@ -1,11 +1,11 @@
 import unittest
-# from app import app
+from app import app
 import requests
 
 class FlaskTestCase(unittest.TestCase):
     
-#     def crete_app(self):
-#         return app
+    def crete_app(self):
+        return app
     
     def test_classify(self):
         # Define the URL of the endpoint
