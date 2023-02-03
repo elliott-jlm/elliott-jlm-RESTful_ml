@@ -7,11 +7,8 @@ app = Flask(__name__)
 # Load the trained model
 model = tf.keras.models.load_model("model.h5")
 
-classes = ['T-shirt', 'Trouser', 'Pullover', 'Dress','Coat','Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
-
 @app.route("/classify", methods=["POST"])
 def classify():
-
     # Get the data from the request
     data = request.get_json()
 
